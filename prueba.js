@@ -74,7 +74,6 @@
       tabla.appendChild(tblBody);
       body.appendChild(tabla);
     }
-    genera_tabla()
 const requestURL = 'https://github.com/luisangel1808/LigaP/blob/master/fide.json';
 const request = new XMLHttpRequest();
 request.open('GET', requestURL);
