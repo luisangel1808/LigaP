@@ -1,52 +1,16 @@
-const fetchData = (url_api) => {
-  return new Promise ((resolve, reject) => {
-      const xhttp = new XMLHttpRequest();
-      xhttp.open('GET', url_api, true);
-      xhttp.onreadystatechange = (() => {
-        if(xhttp.readyState === 4){
-          if(xhttp.status === 200){
-              try {
-                resolve (JSON.parse(xhttp.responseText))
-              } catch (SyntaxError) {
-                resolve (ndJSONtoJSON(xhttp.responseText))
-              }            
-          }
-          else{
-            reject(new Error('Error', url_api))
-          }
-        } 
-      })
-      xhttp.send();
-  })
-}
-
-async function dataUser(url_api) {
-  var datos = []
-  try {
-    for(i=0; i<JUGADORES.length; i++) {
-      const data = await fetchData(url_api);    
-      datos[i] = data
-    }
-  } catch (error) {
-      console.error(error);
-  }  
-  return datos 
-}
-JSONdir = "https://github.com/luisangel1808/LigaP/blob/master/fide.json"
-const jason = await dataUser(JSONdir);
-
-  jason.sort(function (a, b) {
-    if (a.std < b.std) {
-      return 1;
-    }
-    if (a.std > b.std) {
-      return -1;
-    }
-    // a must be equal to b
-    return 0;
-  });
-  
-  function genera_tabla() {
+  function ordenar (jason){
+    jason.sort(function (a, b) {
+      if (a.std < b.std) {
+        return 1;
+      }
+      if (a.std > b.std) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+  }
+  function genera_tabla(jason) {
       var body = document.getElementsByClassName("main")[0];
       var tabla   = document.createElement("table"); 
       tabla.classList.add("tableC") 
@@ -111,3 +75,13 @@ const jason = await dataUser(JSONdir);
       body.appendChild(tabla);
     }
     genera_tabla()
+const requestURL = 'https://github.com/luisangel1808/LigaP/blob/master/fide.json';
+const request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function() {
+  const jason = request.response;
+  ordenar(jason);
+  genera_tabla(jason);
+}
