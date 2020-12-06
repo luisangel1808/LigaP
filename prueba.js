@@ -1,5 +1,10 @@
-jason = JSON.parse(fide);
-  
+const request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+const jason = request.response;
+
+  jason = 
   jason.sort(function (a, b) {
     if (a.std < b.std) {
       return 1;
@@ -76,3 +81,4 @@ jason = JSON.parse(fide);
       body.appendChild(tabla);
     }
     genera_tabla()
+    const requestURL = 'https://github.com/luisangel1808/LigaP/blob/master/fide.json';
