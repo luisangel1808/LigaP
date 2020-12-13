@@ -115,7 +115,11 @@ table{
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
-  text-align: left;        
+  text-align: left;       
+}
+
+table a{
+  text-decoration: none;
 }
 
 thead th {
@@ -129,39 +133,31 @@ width: 5%;
 }
 
 thead th:nth-child(2) {
-width: 20%;
+width: 5%;
 }
 
 thead th:nth-child(3) {
-width: 20%;
+width: 38%;
 }
 
 thead th:nth-child(4) {
-  width: 18%;
+  width: 12%;
 }
 
 thead th:nth-child(5) {
-width: 5%;
+width: 12%;
 }
 thead th:nth-child(6) {
-width: 7%;
+width: 12%;
 }
 
 thead th:nth-child(7) {
-width: 7%;
+width: 8%;
 }
-
 thead th:nth-child(8) {
-width: 7%;
+width: 8%;
 }
 
-thead th:nth-child(9) {
-width: 7%;
-}
-
-thead th:nth-child(10) {
-width: 4%;
-}
 
 .tableLichess a{
 text-decoration: none;
@@ -442,41 +438,34 @@ margin-right: 4%;
 ::placeholder {
 color: white;
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: 1s all;
+  opacity: 1;
+}
+
+.loading .spin {
+  border: 3px solid hsla(185, 100%, 62%, 0.2);
+  border-top-color: #3cefff;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+to {
+  transform: rotate(360deg);
+}
+}   
+
 /* Tabla */
 @media screen and (max-width: 1200px) {   
 
-  .tableC thead, .tableC th {
-      border: none;
-      clip: rect(0, 0, 0, 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-  }
-
-  .tableC tr{
-    border-bottom: 3px solid; 
-  }
-
-  .tableC td {
-    border-bottom: 1px solid #000;
-    display: block;
-    font-size: 1.2em;
-    text-align: right;
-    padding: 10px;
-  }
-
-  .tableC td:before{
-  content: attr(data-label);
-  float: left;
-  color: #273b47;
-  font-weight: bold;
-  font-size: 1em;
-  padding: 1px 5px;
-}
-.tableLichess {
+table {
   overflow-x: auto;
   display: block;
 }

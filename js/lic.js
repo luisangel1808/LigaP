@@ -44,11 +44,10 @@ async function dataUser(url_api) {
   return datos 
 }
 
-async function dataTournament(url_api) {
-  
+async function dataTournament(url_api) {  
 
   try {
-    tournamentData = await fetchData(`${url_api}tournament/AiAlvpqI/results`);
+    tournamentData = await fetchData(`${url_api}tournament/CAw3JUzg/results`);
     var tournamentDataCauca = []
     for(let i=0; i<tournamentData.length; i++) {
       for(let j=0; j<JUGADORES.length; j++) {
@@ -142,5 +141,12 @@ async function genera_tabla() {
   tabla.appendChild(tblHead);
   tabla.appendChild(tblBody);
   body.appendChild(tabla);
+  cargaCompleta()
 }
 genera_tabla()
+loading = document.querySelector('.loading');
+
+function cargaCompleta() {
+  loading.classList.remove('loading');
+}
+
