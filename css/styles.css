@@ -164,29 +164,24 @@ text-decoration: none;
 }
 
 .theadL th:nth-child(1) {
-width: 16%;
+width: 20%;
 }
 .theadL th:nth-child(2) {
-width: 4%;
+width: 5%;
 }
 .theadL th:nth-child(3) {
-width: 25%;
+width: 30%;
 }
 .theadL th:nth-child(4) {
-width: 11%;
+width: 15%;
 }
 .theadL th:nth-child(5) {
-width: 11%;
+width: 15%;
 }
 .theadL th:nth-child(6) {
-width: 12%;
+width: 15%;
 }
-.theadL th:nth-child(7) {
-width: 12%;
-}
-.theadL th:nth-child(8) {
-  width: 9%;
-}
+
 
 .main{
 margin: 20px;
